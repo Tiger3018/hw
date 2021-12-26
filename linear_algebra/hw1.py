@@ -4,8 +4,7 @@
 # wikimedia thanks to https://commons.wikimedia.org/wiki/File:%E9%87%8D%E5%BA%86_%E6%B1%9F%E5%8C%97.jpg
 import cv2
 import numpy as np
-import os
-import sys
+import os, sys
 
 import traceback
 
@@ -126,9 +125,13 @@ class imagePCA():
             traceback.print_exc()
             return None
 
-# imagePCA(35, rgv, 1, 10)
-if len(sys.argv) > 1:
-    tmpPath = sys.argv[1]
-else:
-    tmpPath = "./img/Glabb-wikimedia-重庆_江北-cc3-by-sa.jpg"
-imagePCA(35, tmpPath)
+def main():
+    # imagePCA(35, rgv, 1, 10)
+    if len(sys.argv) > 1:
+        tmpPath = sys.argv[1]
+    else:
+        tmpPath = "./img/Glabb-wikimedia-重庆_江北-cc3-by-sa.jpg"
+    imagePCA(35, tmpPath)
+
+if __name__ == "__main__":
+    main()

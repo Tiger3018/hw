@@ -7,7 +7,7 @@ ref: <https://zhuanlan.zhihu.com/p/67197912> 基于导数性质分析卷积。
 <https://www.jianshu.com/p/cbd1a1f86d1b>
 '''
 
-import cv2, matplotlib, scipy.ndimage
+import cv2, matplotlib, scipy.ndimage, numba
 import numpy as np # as a fallback
 import matplotlib.pyplot as plt
 
@@ -15,7 +15,11 @@ from matplotlib.axes import SubplotBase
 import sys, os, time
 
 meanFilterKernel = {}
-gaussiaFilterKernel = {}
+# numba.typed.Dict.empty(
+#     key_type=numba.types.uint,
+#     value_type=numba.types.double[:][:]
+# )
+gaussianFilterKernel = {}
 
 def extern_gui_provider(image : np.ndarray, axesImage : SubplotBase, axesPlot : SubplotBase, description : str):
     '''This call implement a plot view of image and its histgram, line pixel value as a stream view.
@@ -48,16 +52,26 @@ def liner_filter(image : np.ndarray, kernel) -> np.ndarray:
         sciReturn = scipy.ndimage.convolve(image, kernel) # nearest == reflect when 3x3 kernel
     return sciReturn
 
+@numba.jit(nopython=True)
 def median_filter(image : np.ndarray) -> np.ndarray:
     '''
     opencv: see medianBlur
     fit to: median filter
     '''
-    imageBorder = cv2.copyMakeBorder(image, 1, 1, 1, 1, cv2.BORDER_REFLECT)
-    for i in range(image.shape[0]):
-        for j in range(image.shape[1]):
-            image[i][j] = np.median(imageBorder[i : i + 3, j : j + 3], axis = [0, 1])
-    return image
+    # imageBorder = cv2.copyMakeBorder(image, 1, 1, 1, 1, cv2.BORDER_REFLECT) # numba is not familiar with cv2
+    # imageBorder = np.pad(image, 1, 'reflect') # numba did not implement it...
+    imageBorder = image.copy() #TODO
+    imageReturn = np.zeros(image.shape, dtype=np.uint8)
+    for i in range(imageReturn.shape[0]):
+        for j in range(imageReturn.shape[1]):
+            if imageReturn.ndim == 2:
+                imageReturn[i][j] = np.median(imageBorder[i : i + 3, j : j + 3])
+            else:
+                for k in range(imageReturn.shape[2]):
+                    imageReturn[i][j][k] = np.median(
+                        imageBorder[i : i + 3, j : j + 3, k]
+                    )
+    return imageReturn
 
 def gaussian_filter_generator(nSize, sigma) -> list:
     '''
@@ -66,9 +80,10 @@ def gaussian_filter_generator(nSize, sigma) -> list:
     return [[0.0947, 0.1183, 0.0947], [0.1183, 0.1478, 0.1183], [0.0947, 0.1183, 0.0947]] # sigma = 1.5
     pass
 
-def mean_filter_generator(nSize) -> list:
+# @numba.jit(nopython = True)
+def mean_filter_generator(nSize) -> np.ndarray:
     if nSize not in meanFilterKernel:
-        meanFilterKernel[nSize] = [[1/nSize**2 for j in range(nSize)] for i in range(nSize)]
+        meanFilterKernel[nSize] = np.full((nSize, nSize), 1 / nSize ** 2)
     return meanFilterKernel[nSize]
 
 def bilateral_filter():
@@ -101,22 +116,23 @@ def main():
 
     if len(sys.argv) >= 2:
         os.path.isdir(sys.argv[1])
-    imMatrix = cv2.imread("./dataset/s13/s13_10.jpg")
+    for i in range(1, 11):
+        imMatrix = cv2.imread("./dataset/s13/s13_{}.jpg".format(i))
 
-    imMatrix = cv2.cvtColor(imMatrix, 
-        cv2.COLOR_BGR2RGB # opencv read image as BGR colorspace
-        # cv2.COLOR_BGR2GRAY # weighted mean, like ./hw1.py#68
-        )
+        imMatrix = cv2.cvtColor(imMatrix, 
+            cv2.COLOR_BGR2RGB # opencv read image as BGR colorspace
+            # cv2.COLOR_BGR2GRAY # weighted mean, like ./hw1.py#68
+            )
 
-    fig, ax = plt.subplots(4, 2, sharex = 'col', sharey = 'col', gridspec_kw={'width_ratios': [1, 7]})
-    extern_gui_provider(imMatrix, ax[0, 0], ax[0, 1], "Origin Image")
-    extern_gui_provider(liner_filter(imMatrix, mean_filter_generator(3)), ax[1, 0], ax[1, 1], "Mean filter")
-    # print(time.time())
-    extern_gui_provider(median_filter(imMatrix), ax[2, 0], ax[2, 1], "Median filter") # ~3s
-    # print(time.time())
-    extern_gui_provider(liner_filter(imMatrix, gaussian_filter_generator(3, 1.5)), ax[3, 0], ax[3, 1], "Gaussian filter")
-    plt.show()
-    # plt.savefig()
+        fig, ax = plt.subplots(4, 2, sharex = 'col', sharey = 'col', gridspec_kw={'width_ratios': [1, 7]})
+        extern_gui_provider(imMatrix, ax[0, 0], ax[0, 1], "Origin Image")
+        extern_gui_provider(liner_filter(imMatrix, mean_filter_generator(3)), ax[1, 0], ax[1, 1], "Mean filter")
+        print(time.time())
+        extern_gui_provider(median_filter(imMatrix), ax[2, 0], ax[2, 1], "Median filter") # ~3s
+        print(time.time())
+        extern_gui_provider(liner_filter(imMatrix, gaussian_filter_generator(3, 1.5)), ax[3, 0], ax[3, 1], "Gaussian filter")
+        plt.show()
+        # plt.savefig()
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,11 @@
+name: linear_algebra
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - pip
+  - numpy==1.21
+  - scipy==1.7.1
+  - matplotlib==3.3.4
+  - pip:
+    - numba==0.54.1
