@@ -2,6 +2,7 @@
 # Tiger3018 | MIT License
 '''
 README at hw2
+RESULT at img/hw2_fig1.jpg
 使用多种滤波器实现平滑去噪（低通滤波），区分非线性滤波器，同时输出一些分析图象。
 ref: <https://zhuanlan.zhihu.com/p/67197912> 基于导数性质分析卷积。
 <https://www.jianshu.com/p/cbd1a1f86d1b>
@@ -52,6 +53,7 @@ def liner_filter(image : np.ndarray, kernel) -> np.ndarray:
         sciReturn = scipy.ndimage.convolve(image, kernel) # nearest == reflect when 3x3 kernel
     return sciReturn
 
+# @numba.jit(["uint8[:, :](uint8[:, :])"], nopython=True)
 @numba.jit(nopython=True)
 def median_filter(image : np.ndarray) -> np.ndarray:
     '''
@@ -60,17 +62,42 @@ def median_filter(image : np.ndarray) -> np.ndarray:
     '''
     # imageBorder = cv2.copyMakeBorder(image, 1, 1, 1, 1, cv2.BORDER_REFLECT) # numba is not familiar with cv2
     # imageBorder = np.pad(image, 1, 'reflect') # numba did not implement it...
-    imageBorder = image.copy() #TODO
-    imageReturn = np.zeros(image.shape, dtype=np.uint8)
+    '''implement of np.pad('reflect'), where 0 stands for x-axis
+    # TIP not implement in matlab
+    # TIP not implement in numba
+    for **np.insert**, use image.shape[0] rather than -1, to make new row appear at the end.
+    # imageBorder = np.insert(image, [0, image.shape[0]], [image[1, :], image[-2, :]], 0)
+    for **np.concatenate**, normal [] braces doesn't make sense
+    '''
+    imageBorder = image # ref, not copy
+    imageBorder = np.concatenate(
+        (
+            np.expand_dims(imageBorder[1, :, ], 0),
+            imageBorder,
+            np.expand_dims(imageBorder[-2, :, ], 0)
+        ), 0
+    )
+    imageBorder = np.concatenate(
+        (
+            np.expand_dims(imageBorder[:, 1, ], 1),
+            imageBorder,
+            np.expand_dims(imageBorder[:, -2, ], 1)
+        ), 1
+    )
+    imageReturn = np.zeros(imageBorder.shape, dtype=np.uint8)
     for i in range(imageReturn.shape[0]):
         for j in range(imageReturn.shape[1]):
-            if imageReturn.ndim == 2:
-                imageReturn[i][j] = np.median(imageBorder[i : i + 3, j : j + 3])
-            else:
-                for k in range(imageReturn.shape[2]):
-                    imageReturn[i][j][k] = np.median(
-                        imageBorder[i : i + 3, j : j + 3, k]
-                    )
+            # imageReturn[i, j] = np.median(imageBorder[i : i + 3, j : j + 3], (0, 1))
+            # if imageReturn.ndim == 2:
+            #     imageReturn[i, j] = np.median(imageBorder[i : i + 3, j : j + 3])
+            # else:
+                # for k in range(imageReturn.shape[2]):
+                #     imageReturn[i, j, k] = np.median(
+                #         imageBorder[i : i + 3, j : j + 3, k]
+                #     )
+                # pass
+            imageReturn[i, j] = np.median(imageBorder[i : i + 3, j : j + 3])
+            # Only support single channel of image.
     return imageReturn
 
 def gaussian_filter_generator(nSize, sigma) -> list:

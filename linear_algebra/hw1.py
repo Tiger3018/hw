@@ -35,6 +35,7 @@ def externGuiProvider(colorSpace):
 class colorSpaceMatrix():
     _matrix = None
     _project = None
+    space = []
     spaceRGB = []
     spaceHSV = []
     spaceGrey = []
@@ -72,6 +73,7 @@ class colorSpaceMatrix():
         self.spaceGrey = np.average(self.spaceRGB, 2, [0.299, 0.578, 0.114]).astype(np.uint8) # more config on uint8
         self._spaceUTIL["GREY-M"] = np.mean(self.spaceRGB, 2).astype(np.uint8)
         self._spaceUTIL["GREY-A"] = np.amax(self.spaceRGB, 2)
+        self.space = [self.spaceRGB, self.spaceGrey, self._spaceUTIL["GREY-M"], self._spaceUTIL["GREY-A"]]
         return
     
     def getSpaceUTIL(self):
