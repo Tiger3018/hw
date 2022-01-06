@@ -2,13 +2,13 @@ name: linear_algebra
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
+  - python=3.9
   - pip
   - numpy==1.21
   - scipy==1.7.1
   - matplotlib==3.3.4
-  - opencv==4.5.2
   - pip:
+    - opencv-python~=4.5.2
     - numba==0.54.1
     - ipyfilechooser==0.6.0
     - ipywidgets==7.6.5
