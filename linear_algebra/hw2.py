@@ -70,6 +70,7 @@ def median_filter(image : np.ndarray) -> np.ndarray:
     for **np.concatenate**, normal [] braces doesn't make sense
     '''
     imageBorder = image # ref, not copy
+    imageReturn = np.zeros(imageBorder.shape, dtype=np.uint8)
     imageBorder = np.concatenate(
         (
             np.expand_dims(imageBorder[1, :, ], 0),
@@ -84,7 +85,6 @@ def median_filter(image : np.ndarray) -> np.ndarray:
             np.expand_dims(imageBorder[:, -2, ], 1)
         ), 1
     )
-    imageReturn = np.zeros(imageBorder.shape, dtype=np.uint8)
     for i in range(imageReturn.shape[0]):
         for j in range(imageReturn.shape[1]):
             # imageReturn[i, j] = np.median(imageBorder[i : i + 3, j : j + 3], (0, 1))

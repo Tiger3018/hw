@@ -7,8 +7,9 @@ dependencies:
   - numpy==1.21
   - scipy==1.7.1
   - matplotlib==3.3.4
+  - opencv==4.5.2
+  - mesa-libgl-cos6-x86_64==11.0.7
   - pip:
-    - opencv-python~=4.5.2
     - numba==0.54.1
     - ipyfilechooser==0.6.0
     - ipywidgets==7.6.5
