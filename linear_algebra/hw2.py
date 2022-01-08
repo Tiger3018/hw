@@ -163,3 +163,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+hw2Config = {0: lambda x: x, 1: median_filter, 2: lambda x: liner_filter(x, mean_filter_generator(3)), 
+    3: lambda x: liner_filter(x, gaussian_filter_generator(3, 1.5))}
