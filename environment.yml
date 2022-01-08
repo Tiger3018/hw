@@ -5,11 +5,11 @@ dependencies:
   - python~=3.9
   - pip
   - numpy~=1.20
+  - numba~=0.54
   - pandas~=1.1
   - scipy~=1.7
   - matplotlib~=3.3
   - pip:
     - opencv-python-headless~=4.5.2
-    - numba~=0.54
     - ipyfilechooser==0.6.0
     - ipywidgets==7.6.5
