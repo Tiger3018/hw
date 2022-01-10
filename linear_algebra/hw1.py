@@ -22,9 +22,10 @@ def externGuiProvider(colorSpace):
     '''
     if len(colorSpace) != 4:
         raise TypeError("len(colorSpace) -nq 4.")
-    showLine1 = np.concatenate([colorSpace[0], np.repeat(colorSpace[1][:,:, None], 3, 2)], axis = 1)
-    showLine2 = np.concatenate([colorSpace[1], colorSpace[2]], axis = 1)
-    showLine2 = np.repeat(showLine2[:,:, None], 3, 2)
+    showLine1 = np.concatenate(
+        [colorSpace[0], np.repeat(colorSpace[1][:, :, None], 3, 2)], axis=1)
+    showLine2 = np.concatenate([colorSpace[1], colorSpace[2]], axis=1)
+    showLine2 = np.repeat(showLine2[:, :, None], 3, 2)
     showALL = np.vstack([showLine1, showLine2])
     showALL = cv2.resize(showALL, (1600, 1200))
     cv2.imshow("Open CV & Numpy for multiple grey space method.", showALL)
@@ -70,14 +71,17 @@ class colorSpaceMatrix():
         The default impletion of RGB -> GREY is weighted mean.
         See https://docs.opencv.org/4.5.3/de/d25/imgproc_color_conversions.html
         """
-        self.spaceGrey = np.average(self.spaceRGB, 2, [0.299, 0.578, 0.114]).astype(np.uint8) # more config on uint8
+        self.spaceGrey = np.average(self.spaceRGB, 2, [0.299, 0.578, 0.114]).astype(
+            np.uint8)  # more config on uint8
         self._spaceUTIL["GREY-M"] = np.mean(self.spaceRGB, 2).astype(np.uint8)
         self._spaceUTIL["GREY-A"] = np.amax(self.spaceRGB, 2)
-        self.space = [self.spaceRGB, self.spaceGrey, self._spaceUTIL["GREY-M"], self._spaceUTIL["GREY-A"]]
+        self.space = [self.spaceRGB, self.spaceGrey,
+                      self._spaceUTIL["GREY-M"], self._spaceUTIL["GREY-A"]]
         return
-    
+
     def getSpaceUTIL(self):
-        return 
+        return
+
 
 class imagePCA():
     '''
@@ -92,13 +96,14 @@ class imagePCA():
         _dimension = dim
         if imSpace := self._readSingle(args[0]):
             externGuiProvider([imSpace._spaceBGR, imSpace._spaceUTIL["GREY-A"],
-                imSpace._spaceUTIL["GREY-M"], imSpace.spaceGrey])
+                               imSpace._spaceUTIL["GREY-M"], imSpace.spaceGrey])
 
     def _readPGM(self, *args):
         self.spaceOrigin = self._readSingle(args[0] + str(args[1]) + ".pgm")
         for i in range(args[1] + 1, args[2] + 1):
             pathNow = args[0] + str(i) + ".pgm"
-            self.spaceOrigin = np.hstack([self.spaceOrigin, self._readSingle(pathNow)])
+            self.spaceOrigin = np.hstack(
+                [self.spaceOrigin, self._readSingle(pathNow)])
             # if(os.path.exists(pathNow)):
             #     self.spaceOrigin = np.hstack([self.spaceOrigin, self._open(pathNow)])
             # else:
@@ -112,20 +117,21 @@ class imagePCA():
         try:
             im = cv2.imread(path)  # it also read pgm as BGR
             # imSpace = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-            imSpace = colorSpaceMatrix(BGR = im)
+            imSpace = colorSpaceMatrix(BGR=im)
             return imSpace
             # print(imGrey)
             # imCol = imGrey.reshape(imGrey.size, 1)
             # if configA["debug"]:
-                # print(im.shape, imGrey.shape, imCol.shape)
-                # print(imCol)
+            # print(im.shape, imGrey.shape, imCol.shape)
+            # print(imCol)
             # return imCol
         except Exception as e:
             print('\033[1;31mLoad {} failed. TYPE: {}\033[0m'.format(
                 path, type(e)
-                ))
+            ))
             traceback.print_exc()
             return None
+
 
 def main():
     # imagePCA(35, rgv, 1, 10)
@@ -134,6 +140,7 @@ def main():
     else:
         tmpPath = "./img/Glabb-wikimedia-重庆_江北-cc3-by-sa.jpg"
     imagePCA(35, tmpPath)
+
 
 if __name__ == "__main__":
     main()
