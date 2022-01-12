@@ -1,0 +1,49 @@
+\chapter{附\hskip\ccwd{}录}
+\section{程序源代码}
+
+\begin{figure}[htb]
+	\dirtree{%
+		.1 \myfolder{pink}{工作文件夹}.
+		.2 \myfolder{cyan}{class1.ipynb}.
+		.2 \myfolder{cyan}{recognition.ipynb}.
+		.2 \myfolder{cyan}{hw1.py}.
+		.2 \myfolder{cyan}{hw2.py}.
+		.2 \myfolder{cyan}{dataset}.
+		.3 \myfolder{lime}{s1}.
+		.3 \myfolder{lime}{...}.
+		.3 \myfolder{lime}{test}.
+	}%\dirtree
+\caption[]{软件源代码文件结构图示。}
+\label{fig:filetree}
+\end{figure}
+
+另可见\url{https://github.com/Tiger3018/hw/tree/HEAD/linear_algebra}。
+
+\verb|hw1.py|: 图像的灰度处理
+\inputminted{python}{./code/hw1.py}
+\verb|hw2.py|: 图像的滤波处理
+\inputminted{python}{./code/hw2.py}
+\verb|class1.ipynb|: 图像的主成分分析，训练模块。
+\inputminted{python}{./code/class1.ipynb}
+\verb|recognition.ipynb|: 分类模块：可视化的训练数据读取及识别分类
+\inputminted{python}{./code/recognition.ipynb}
+
+\section{在线运行}
+
+可以访问\url{https://mybinder.org/v2/gh/tiger3018/hw/89041d1?labpath=linear_algebra\%2class1.ipynb}，快速实现视频中展示的所有软件功能。只需注意：
+
+\begin{itemize}
+    \item 需要一个稳定的网络环境。
+    \item 分配得到的虚拟环境内存需要为2GB。当分配到的内存仅有1GB时，不能正常生成训练结果。
+    \item 请将训练模块中的计时部分(\verb|%timeit|)注释(\verb|#|)。出现的计时部分在云端运行一次，分别需要约30秒和20秒。
+\end{itemize}
+
+要生成训练结果\verb|train.npz|，请完全运行一次\verb|class1.ipynb|。在生成训练结果或上传训练结果后，再完全运行一次\verb|recognition.ipynb|，即可展示可交互界面。
+
+%\begin{table}[htb]
+
+%\begin{equation}
+%\alpha\beta\gamma\delta\epsilon\varepsilon\zeta\eta = CD\Gamma\varGamma Z
+%\end{equation}\eqlist{附录中的公式编号2，双语}[Equation name in English B]
+
+%测试用途：theequation值为：\theequation ，thefigure值为：\thefigure ，thetable值为：\thetable
