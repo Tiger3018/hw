@@ -1,0 +1,16 @@
+<package>
+  <name>march-twentith-bridge</name>
+  <version>0.1.0</version>
+  <description>bridge</description>
+  <maintainer email="tiger3018of02@gmail.com">Tiger3018</maintainer>
+  <author email="tiger3018of02@gmail.com">Tiger3018</author>
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>std_msgs</buildtool_depend>
+  <buildtool_depend>tf2_msgs</buildtool_depend>
+  <buildtool_depend>geometry_msgs</buildtool_depend>
+  <buildtool_depend>gazebo_msgs</buildtool_depend>
+  <run_depend>qqq</run_depend>
+
+</package>

@@ -1,0 +1,42 @@
+<launch>
+  <arg
+    name="model" 
+    default="true"/>
+  <param
+    name="robot_description"
+    textfile="$(find qqq)/urdf/qqq.urdf" />
+  <node
+    name="joint_state_publisher_gui"
+    pkg="joint_state_publisher_gui"
+    type="joint_state_publisher_gui" />
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="robot_state_publisher" />
+  <!-- rviz is off -->
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+    <!-- <arg name="gui" value="false" /> -->
+  </include>
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_link base_footprint 40" />
+  <node
+    name="spawn_model"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-file $(find qqq)/urdf/qqq.urdf -urdf -model qqq"
+    output="screen" />
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+  <node
+    name="bridge"
+    pkg="march-twentith-bridge"
+    type="bridge.py"/>
+</launch>
