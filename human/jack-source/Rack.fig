@@ -1,0 +1,23 @@
+figure {
+    attribute legblk {
+        ambient = (0.082,0.082,0.082);
+        diffuse = (0.329,0.329,0.329);
+    }
+    segment rack {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Rack/Rack.pss";
+        attribute = legblk;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        site base0->location = trans(0.0000cm,43.1800cm,0.0000cm);
+        site base1->location = trans(0.0000cm,143.5100cm,0.0000cm);
+        site center_of_mass->location = trans(72.8993cm,0.0000cm,-352.7768cm);
+        site base2->location = trans(0.0000cm,50.0000cm,0.0000cm);
+        site center_of_mass0->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    root = rack.base;
+    /* start property list */
+    visibility = 0;
+    /* end property list */
+}

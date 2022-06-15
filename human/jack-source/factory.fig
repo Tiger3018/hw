@@ -1,0 +1,337 @@
+figure {
+    attribute white {
+        ambient = (0.200,0.200,0.200);
+        diffuse = (0.800,0.800,0.800);
+    }
+    attribute factory_gray {
+        ambient = (0.160,0.160,0.160);
+        diffuse = (0.643,0.643,0.643);
+        glossiness = 25;
+    }
+    segment base {
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        site center_of_mass->location = trans(-27.7416cm,-234.7836cm,-10.5585cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg0 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg0.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg1 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg1.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg2 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg2.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        display_mode = "wireframe";
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg3 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg3.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        display_mode = "wireframe";
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg4 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg4.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg5 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg5.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg6 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg6.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg7 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg7.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        display_mode = "wireframe";
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg8 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg8.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg9 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg9.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg10 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg10.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg11 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg11.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg12 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg12.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg13 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg13.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg14 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg14.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg15 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg15.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg16 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg16.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg17 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg17.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg18 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg18.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg19 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg19.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg20 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg20.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg21 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg21.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg22 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg22.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg23 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg23.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg24 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg24.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = white;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg30 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Factory/Factory_seg30.pss" * scale(1.100000,1.100000,1.100000);
+        attribute = factory_gray;
+        site base->location = trans(0.0000cm,0.0000cm,0.0000cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    joint dummy0_seg0 {
+        connect base.base to seg0.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy1_seg1 {
+        connect base.base to seg1.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy2_seg2 {
+        connect base.base to seg2.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy3_seg3 {
+        connect base.base to seg3.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy4_seg4 {
+        connect base.base to seg4.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy5_seg5 {
+        connect base.base to seg5.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy6_seg6 {
+        connect base.base to seg6.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy7_seg7 {
+        connect base.base to seg7.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy8_seg8 {
+        connect base.base to seg8.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy9_seg9 {
+        connect base.base to seg9.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy10_seg10 {
+        connect base.base to seg10.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy11_seg11 {
+        connect base.base to seg11.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy12_seg12 {
+        connect base.base to seg12.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy13_seg13 {
+        connect base.base to seg13.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy14_seg14 {
+        connect base.base to seg14.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy15_seg15 {
+        connect base.base to seg15.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy16_seg16 {
+        connect base.base to seg16.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy17_seg17 {
+        connect base.base to seg17.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy18_seg18 {
+        connect base.base to seg18.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy19_seg19 {
+        connect base.base to seg19.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy20_seg20 {
+        connect base.base to seg20.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy21_seg21 {
+        connect base.base to seg21.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy22_seg22 {
+        connect base.base to seg22.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy23_seg23 {
+        connect base.base to seg23.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy24_seg24 {
+        connect base.base to seg24.base;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint dummy30_seg30 {
+        connect base.base to seg30.base;
+        displacement = trans(0.0000cm,-0.7226cm,0.0000cm);
+    }
+    root = base.base;
+    /* start property list */
+    visibility = 0;
+    /* end property list */
+}

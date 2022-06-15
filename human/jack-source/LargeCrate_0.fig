@@ -1,0 +1,66 @@
+figure {
+    attribute darkfirebrick {
+        ambient = (0.250,0.020,0.020);
+        diffuse = (0.290,0.080,0.080);
+        specular = (0.020,0.020,0.020);
+        glossiness = 88;
+    }
+    attribute darkfirebrick0 {
+        ambient = (0.250,0.020,0.020);
+        diffuse = (0.290,0.080,0.080);
+        specular = (0.020,0.020,0.020);
+        glossiness = 88;
+    }
+    attribute darkfirebrick1 {
+        ambient = (0.250,0.020,0.020);
+        diffuse = (0.290,0.080,0.080);
+        specular = (0.020,0.020,0.020);
+        glossiness = 88;
+    }
+    segment seg0 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Crate/LargeCrate_seg0.pss";
+        attribute = darkfirebrick;
+        site center_of_mass->location = trans(28.0501cm,54.7501cm,-8.9813cm);
+        site seg0->location = trans(101.4314cm,4.5733cm,47.1319cm);
+        site seg60_0->location = trans(-45.0449cm,0.0001cm,59.3987cm);
+        site base->location = trans(-45.0449cm,0.0001cm,59.3987cm);
+        site seg0_0->location = trans(101.2409cm,4.5588cm,-65.4484cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg1 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Crate/LargeCrate_seg1.pss";
+        attribute = darkfirebrick0;
+        site base->location = trans(101.3025cm,4.5000cm,47.4644cm);
+        site seg61->location = trans(101.3025cm,4.5000cm,47.4644cm);
+        site center_of_mass->location = xyz(-0.0000deg,0.1700deg,-0.0000deg) * trans(102.7316cm,61.6998cm,17.3401cm);
+        site seg1->location = trans(101.3025cm,4.5000cm,47.4644cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    segment seg2 {
+        psurf = "C:/Program Files/Siemens/Jack_8.0.1/docs/Jack_Training Files/Crate/LargeCrate_seg2.pss";
+        attribute = darkfirebrick1;
+        site center_of_mass->location = xyz(-0.0000deg,0.0400deg,-0.0000deg) * trans(102.5829cm,61.6998cm,-35.6500cm);
+        site seg62->location = trans(101.0633cm,4.4780cm,-65.5705cm);
+        site base->location = trans(101.0633cm,4.4780cm,-65.5705cm);
+        site seg2->location = trans(101.0634cm,4.4780cm,-65.5706cm);
+        /* start property list */
+        visibility = 1;
+        /* end property list */
+    }
+    joint Door1 {
+        connect seg0.seg0 to seg1.seg1;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    joint Door2 {
+        connect seg0.seg0_0 to seg2.seg2;
+        displacement = trans(0.0000cm,0.0000cm,0.0000cm);
+    }
+    root = seg0.base;
+    /* start property list */
+    visibility = 0;
+    /* end property list */
+}
