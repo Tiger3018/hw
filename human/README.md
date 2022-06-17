@@ -1,6 +1,6 @@
 # 工效学
 [![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/file/0mEzyL8HP8VcFhrRgLdqYQ/)
-[![Video](https://shields.io/badge/%E8%A7%86%E9%A2%91-%E7%82%B9%E6%88%91%E7%9C%8B-important?style=for-the-badge)](./video.mog)
+[![Video](https://shields.io/badge/%E8%A7%86%E9%A2%91-%E7%82%B9%E6%88%91%E7%9C%8B-important?style=for-the-badge)](./video.mpg)
 
 ---
 
