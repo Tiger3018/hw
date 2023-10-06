@@ -4,3 +4,6 @@
 [submodule "human/vite-test"]
 	path = human/vite-test
 	url = https://github.com/Tiger3018/vite-test
+[submodule "eie_car_software/src/synamic-class/3rdparty/yaml-cpp"]
+	path = eie_car_software/src/synamic-class/3rdparty/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp
